@@ -1,0 +1,25 @@
+VZV HOST GENE EXPRESSION ANALYSIS
+
+PROJECT SUMMARY
+
+Important significant genes: 13
+Common significant genes: 3
+Enriched GO biological processes: 263
+Enriched KEGG pathways: 13
+
+IMPORTANT SIGNIFICANT GENES
+ISG15, MX1, MX2, CFB, CMPK2, HERC6, IFI27, IFI44, IFI44L, IFI6, IRF7, ISG20, LGALS9
+
+TOP GO BIOLOGICAL PROCESSES
+response to virus
+defense response to virus
+regulation of viral life cycle
+negative regulation of viral process
+negative regulation of viral genome replication
+
+TOP KEGG PATHWAYS
+Herpes simplex virus 1 infection
+Measles
+Coronavirus disease
+NF-kappa B signaling pathway
+Human papillomavirus infection
