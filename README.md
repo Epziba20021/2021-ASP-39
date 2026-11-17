@@ -1,6 +1,6 @@
-# Host Gene Expression Response to Varicella-Zoster Virus (Chickenpox): Interferon-Related Genes and Pathways
+# Host Gene Expression Response to Varicella Zoster Virus (Chickenpox): Interferon Related Genes and Pathways
 
-A bioinformatics re-analysis of the public GEO dataset **GSE121385** using R (dplyr, ggplot2 and clusterProfiler).
+A bioinformatics reanalysis of the public GEO dataset **GSE121385** using R (dplyr, ggplot2 and clusterProfiler).
 
 ## 1. Introduction
 
@@ -243,20 +243,7 @@ Bioinformatics/
 ├── .gitignore
 └── README.md
 ```
-
-## 11. How to Reproduce
-
-1. Put the five Excel files in `data/`.
-2. Install the packages:
-   ```r
-   install.packages(c("readxl", "dplyr", "ggplot2", "BiocManager"))
-   BiocManager::install(c("clusterProfiler", "org.Hs.eg.db", "DOSE", "enrichplot", "GO.db"))
-   ```
-3. Run the scripts in numeric order, `01` to `09`. Later scripts read files written by earlier ones (for example `results/imported_datasets.rds` and `results/significant_gene_frequency.csv`).
-4. Change the absolute path `setwd("C:/Users/Admin/Desktop/Bioinformatics")` at the top of each script to your own project folder.
-5. Script `07` needs an internet connection for KEGG.
-
-## 12. References
+## 11. References
 
 1. Gene Expression Omnibus (GEO), dataset GSE121385. NCBI. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121385
 2. Yu G, Wang LG, Han Y, He QY (2012). clusterProfiler: an R package for comparing biological themes among gene clusters. *OMICS*, 16(5), 284-287.
