@@ -250,9 +250,3 @@ Bioinformatics/
 3. Wu T, et al. (2021). clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. *The Innovation*, 2(3), 100141.
 4. Gene Ontology Consortium. The Gene Ontology resource. http://geneontology.org
 5. Kanehisa M, Goto S (2000). KEGG: Kyoto Encyclopedia of Genes and Genomes. *Nucleic Acids Research*, 28(1), 27-30.
-
-## 13. Author
-
-**Epziba Kulasekaram**  
-BSc (Hons) in Computer Science, Faculty of Applied Science, University of Vavuniya, Sri Lanka  
-GitHub: https://github.com/Epziba20021/2021-ASP-39
