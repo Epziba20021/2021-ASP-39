@@ -1,11 +1,35 @@
+CHICKENPOX (VARICELLA) AND VARICELLA-ZOSTER VIRUS (VZV)
+
+INTRODUCTION
+
+Chickenpox, also known as varicella, is a contagious infectious disease caused by the Varicella-Zoster Virus (VZV). VZV is a member of the Herpesviridae family. After the initial infection, the virus can remain latent in the human body and may reactivate later in life, causing herpes zoster (shingles).
+
+During VZV infection, human host cells respond by activating different genes involved in antiviral defence and immune responses. Studying these host gene expression changes helps researchers understand how human cells respond to VZV infection.
+
 VZV HOST GENE EXPRESSION ANALYSIS
 
 PROJECT SUMMARY
 
+This project analyses five VZV-related host gene expression datasets obtained from the NCBI Gene Expression Omnibus (GEO), study GSE121385.
+
+Total datasets analysed: 5
+Total unique significant genes: 53
 Important significant genes: 13
 Common significant genes: 3
-Enriched GO biological processes: 263
+Enriched GO terms: 263
 Enriched KEGG pathways: 13
+
+SIGNIFICANT GENE ANALYSIS
+
+      Strain Significant_Genes Total_Genes Percentage
+1   YC01_Low                 7          43      16.28
+2  YC01_High                18         202       8.91
+3 Suduvax_CA                31          68      45.59
+4 Suduvax_CF                34          67      50.75
+5   VarilRix                40          90      44.44
+
+COMMON SIGNIFICANT GENES
+MX1, ISG15, MX2
 
 IMPORTANT SIGNIFICANT GENES
 ISG15, MX1, MX2, CFB, CMPK2, HERC6, IFI27, IFI44, IFI44L, IFI6, IRF7, ISG20, LGALS9
@@ -23,3 +47,9 @@ Measles
 Coronavirus disease
 NF-kappa B signaling pathway
 Human papillomavirus infection
+
+CONCLUSION
+
+This project identifies significant host gene expression changes associated with VZV-related datasets. The analysis highlights common and frequently occurring genes, including MX1, ISG15 and MX2. Gene Ontology and KEGG enrichment analyses provide further information about biological processes and pathways associated with the identified genes.
+
+The findings contribute to understanding host antiviral responses during Varicella-Zoster Virus infection.

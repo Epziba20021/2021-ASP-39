@@ -1,3 +1,4 @@
+
 # 03 - SIGNIFICANT GENE ANALYSIS
 
 library(dplyr)
@@ -15,33 +16,48 @@ datasets <- lapply(datasets, function(data) {
 
 dir.create("results", showWarnings = FALSE)
 
-# Count unique significant genes in each dataset
+# Extract unique significant genes from each dataset
+significant_gene_lists <- lapply(datasets, function(data) {
+  
+  gene_names <- trimws(as.character(data[["GeneName"]]))
+  q_values <- as.numeric(data[["q-value"]])
+  
+  valid <- !is.na(gene_names) &
+    gene_names != "" &
+    !is.na(q_values) &
+    q_values <= 0.05
+  
+  unique(gene_names[valid])
+})
+
+# Count unique significant genes and total unique genes
 sig_counts <- data.frame(
   Strain = names(datasets),
   
-  Significant_Genes = sapply(datasets, function(data) {
-    length(unique(
-      data$GeneName[
-        !is.na(data[["q-value"]]) &
-          data[["q-value"]] <= 0.05 &
-          !is.na(data$GeneName) &
-          data$GeneName != ""
-      ]
-    ))
-  }),
+  Significant_Genes = sapply(
+    significant_gene_lists,
+    length
+  ),
   
-  Total_Genes = sapply(datasets, nrow)
+  Total_Genes = sapply(datasets, function(data) {
+    genes <- trimws(as.character(data[["GeneName"]]))
+    
+    length(unique(
+      genes[!is.na(genes) & genes != ""]
+    ))
+  })
 )
 
 sig_counts$Percentage <- round(
-  (sig_counts$Significant_Genes /
-     sig_counts$Total_Genes) * 100,
+  sig_counts$Significant_Genes /
+    sig_counts$Total_Genes * 100,
   2
 )
 
 cat("\nSIGNIFICANT GENE COUNTS:\n")
 print(sig_counts)
 
+# Plot significant gene counts
 sig_plot <- ggplot(
   sig_counts,
   aes(x = Strain, y = Significant_Genes)
@@ -60,6 +76,7 @@ sig_plot <- ggplot(
 
 print(sig_plot)
 
+# Save significant gene counts
 write.csv(
   sig_counts,
   "results/significant_gene_counts.csv",
@@ -74,22 +91,37 @@ ggsave(
   dpi = 300
 )
 
-# Extract unique significant genes from each dataset
-significant_gene_lists <- lapply(datasets, function(data) {
-  data %>%
-    filter(
-      !is.na(GeneName),
-      GeneName != "",
-      !is.na(`q-value`),
-      `q-value` <= 0.05
-    ) %>%
-    pull(GeneName) %>%
-    unique()
-})
+# Plot significant gene percentages
+percentage_plot <- ggplot(
+  sig_counts,
+  aes(x = Strain, y = Percentage)
+) +
+  geom_col() +
+  geom_text(
+    aes(label = paste0(Percentage, "%")),
+    vjust = -0.5
+  ) +
+  labs(
+    title = "Percentage of Significant Genes Across VZV Datasets",
+    x = "Dataset",
+    y = "Significant Genes (%)"
+  ) +
+  theme_minimal() +
+  ylim(0, 60)
 
-unique_genes <- unique(unlist(significant_gene_lists))
+print(percentage_plot)
+
+ggsave(
+  "results/significant_gene_percentage.png",
+  plot = percentage_plot,
+  width = 9,
+  height = 6,
+  dpi = 300
+)
 
 # Calculate gene frequency across datasets
+unique_genes <- unique(unlist(significant_gene_lists))
+
 gene_frequency <- data.frame(
   Gene = unique_genes
 )
